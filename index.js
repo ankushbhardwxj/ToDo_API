@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var todoRoutes = require('./routes/todos');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(__dirname+'/views')); //for connecting HTML  --dirname used to connect directory
+app.use(express.static(__dirname+'/public')); //for connecting CSS & JS
 var port = 3000; //can be any port
 //starts a UNIX socket and listens for connections on the given path
 //app.listen(port,host,backlog,callback) binds and listens for connections
@@ -18,7 +20,8 @@ app.listen(port,function(){
 //callbacks can be middle ware functions, series of middlewares,
 //array of middle ware or combination of all
 app.get('/',function(req,res){
-  res.send({message: "hello"}); //it actually calls res.json()
+  res.sendFile("index.html")
+  //res.send({message: "hello"}); //it actually calls res.json()
 });
 
  app.use('/api/todos', todoRoutes);

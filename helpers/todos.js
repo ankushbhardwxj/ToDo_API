@@ -1,5 +1,5 @@
 var db = require('../models');
-
+//find and list all the todos from the API
 exports.getTodos = function(req, res){
   db.Todo.find()
   .then(function(todos){
@@ -8,9 +8,8 @@ exports.getTodos = function(req, res){
   .catch(function(err){
     res.send(err);
   })
-  //res.send("jo");
 }
-
+//create a new todo on the API.
 exports.createTodo = function(req,res){
   db.Todo.create(req.body)
   .then(function(newTodo){

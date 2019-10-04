@@ -4,6 +4,7 @@ var app = express(); //The app returned by express() is in
 //HTTP servers as a callback to handle requests.
 var bodyParser = require('body-parser');
 var todoRoutes = require('./routes/todos');
+//body parser boiler plate
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/views')); //for connecting HTML  --dirname used to connect directory

@@ -1,0 +1,5 @@
+This is a API created using Express, Nodejs and MongoDB. 
+models/ - contains mongodb models
+routes/ - routes defined here
+public/ - contains app.js
+helpers/ - contains helpers for routers
